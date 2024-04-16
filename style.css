@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calculadora{
+    position: relative;
+    height: 700px;
+    display: grid;
+    background-color: #181818;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 50px;
+}
+
+.calculadora::before, .calculadora::after{
+    position: absolute;
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: -2px;
+    left: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--fundo), blue, yellow, red, green, blue);
+    z-index: -1;
+    animation: rodar 2s linear infinite;
+}
+
+.calculadora::after{
+    filter: blur(10px);
+    opacity: .5;
+}
+
+
+@property --fundo{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+
+@keyframes rodar{
+    0%{
+        --fundo: 0deg;
+    }
+
+    100%{
+        --fundo: 360deg;
+    }
+}
+
+
+
+.numeros{
+    height: 100px;
+    border-radius: 30px;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.300);
+    transition: all .3s ease-in-out;
+}
+
+.visor{
+    grid-column: 1 / span 4;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 2px solid white;
+    box-shadow: inset 0px 0px 10px 2px black;
+    color: white;
+    text-align: center;
+    font-size: 2em;   
+    letter-spacing: 1px;
+}
+
+
+.limpar{
+    grid-column: 1 / span 2;
+}
+
+.igual{
+    grid-column: 4;
+    grid-row: 5 / span 6;
+    height: 210px;
+}
+
+.numeros[value="0"]{
+    grid-column: 1 / span 2;
+}
+
+.acao{
+    background-color: darkgray;
+}
+
+.numeros:hover{
+    background-color: rgba(245, 245, 245, 0.500);
+    
+}
+
+.numeros:active{
+    background-color: rgba(245, 245, 245, 0.300);
+    color: rgba(255, 255, 255, 0.500);
+    transition: none;
+}
+
+
+
+@media screen and (min-width: 250px) and (max-width:400px) {
+    
+    .calculadora{
+        height: 410px;
+        display: grid;
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px 50px;
+        gap: 10px 8px;
+    }
+
+    .numeros{
+        height: 50px;
+        border-radius: 50px;
+    }
+
+    .numeros:hover{
+        background-color: rgba(245, 245, 245, 0.500);
+        border-radius: inherit;
+        
+    }
+    
+    .numeros:active{
+        background-color: rgba(245, 245, 245, 0.300);
+        color: rgba(255, 255, 255, 0.500);
+        border-radius: inherit;
+        transition: none;
+    }
+
+    .visor{
+        grid-column: 1 / span 4;
+        height: 45px;
+    }
+
+    .igual{
+        grid-row: 5 / span 6;
+        height: 110px;
+    }
+
+
+
+    
+
+}
+
+
+
+@media screen and (min-width: 400px) and (max-width:500px) {
+    
+    .calculadora{
+        height: 580px;
+        display: grid;
+        grid-template-columns: 80px 80px 80px 80px;
+        grid-template-rows: 80px 80px 80px 80px;
+        gap: 10px;
+    }
+
+    .numeros{
+        height: 80px;
+        border-radius: 50px;
+    }
+
+    .numeros:hover{
+        background-color: rgba(245, 245, 245, 0.500);
+        border-radius: inherit;
+        
+    }
+    
+    .numeros:active{
+        background-color: rgba(245, 245, 245, 0.300);
+        color: rgba(255, 255, 255, 0.500);
+        border-radius: inherit;
+        transition: none;
+    }
+
+    .visor{
+        grid-column: 1 / span 4;
+    }
+
+    .igual{
+        grid-row: 5 / span 6;
+        height: 170px;
+    }
+
+
+
+    
+
+}

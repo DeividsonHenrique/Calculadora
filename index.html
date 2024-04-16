@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculadora">
+
+        <input class="visor" type="text" id="display" disabled>
+
+        <input class="numeros limpar acao" type="button" value="C" onclick="clearDisplay()">
+        <input class="numeros dividir acao" type="button" value="÷" onclick="addToDisplay('/')">
+        <input class="numeros multiplicar acao" type="button" value="x" onclick="addToDisplay('*')">
+        
+        
+        <input class="numeros" type="button" value="7" onclick="addToDisplay('7')">
+        <input class="numeros" type="button" value="8" onclick="addToDisplay('8')">
+        <input class="numeros" type="button" value="9" onclick="addToDisplay('9')">
+        <input class="numeros subtrair acao" type="button" value="-" onclick="addToDisplay('-')">
+        
+        
+
+        <input class="numeros" type="button" value="4" onclick="addToDisplay('4')">
+        <input class="numeros" type="button" value="5" onclick="addToDisplay('5')">
+        <input class="numeros" type="button" value="6" onclick="addToDisplay('6')">
+        <input class="numeros soma acao" type="button" value="+" onclick="addToDisplay('+')">
+        
+        <input class="numeros" type="button" value="1" onclick="addToDisplay('1')">
+        <input class="numeros" type="button" value="2" onclick="addToDisplay('2')">
+        <input class="numeros" type="button" value="3" onclick="addToDisplay('3')">
+
+        <input class="numeros" type="button" value="0" onclick="addToDisplay('0')">
+        <input class="numeros ponto" type="button" value="." onclick="addToDisplay('.')">
+        <input class="numeros igual acao" type="button" value="=" onclick="calculate()">
+
+    </div>
+
+    <script>
+        function addToDisplay(value){
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay(){
+        document.getElementById('display').value = ''
+        }
+
+        function calculate(){
+            let resultado = eval(document.getElementById('display').value)
+            document.getElementById('display').value = resultado
+
+        }
+    </script>
+
+   
+</body>
+</html>
